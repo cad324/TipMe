@@ -21,7 +21,10 @@ exports.stripeCharge = functions.database.ref('/{userID}/tip_amount').onUpdate((
 	var source_ref = db.ref("/"+userId+"/source/");
 	var idemp_key_ref = db.ref("/"+userId+"/idempotency_key/");
 	var idemp_key = "";
-	var customer_source; var customer_obj;
+	var customer_source; 	//source variable for the customer to be saved here
+	var customer_obj; 		//customer object to be created and saved here	
+	var saved_customer_ref = db.ref("/"+userId+"/customer/");
+	var customer_id;
 	
 	source_ref.on("value", function(snapshot) {
 		customer_source = snapshot.val();
@@ -30,7 +33,6 @@ exports.stripeCharge = functions.database.ref('/{userID}/tip_amount').onUpdate((
 			console.error("Source not retrieved!");
 			return;
 		}
-		tokenId = snapshot.val();
 	}, function(errorObject) {
 		console.log("The read failed: " + errorObject);
 	});
@@ -42,7 +44,6 @@ exports.stripeCharge = functions.database.ref('/{userID}/tip_amount').onUpdate((
 			console.error("key not created!");
 			return;
 		}
-		tokenId = snapshot.val();
 	}, function(errorObject) {
 		console.log("The read failed: " + errorObject);
 	});
@@ -52,25 +53,46 @@ exports.stripeCharge = functions.database.ref('/{userID}/tip_amount').onUpdate((
     return admin.database().ref(`/${userId}`).once('value').then(snapshot => {
         return snapshot.val();
     }).then(customers => {
+		
 		//Create a Customer:
 		customer_obj = stripe.customers.create({
-			source: customer_source,
+			source: customer_source
 		}, function(err, customer_obj) {
 			//async call
-			console.log("customer "+customer_obj+" error "+err);
+			console.log("Creating customer resulted in "+err);
+			if (customer_obj !== null) {
+				admin.database().ref(`/${userId}/customer`).set(customer_obj["id"]);
+				customer_id = customer_obj["id"];
+				console.log("Non-null customer id retrieved is "+customer_id);
+				console.log("Non-null customer object retrieved is "+customer_obj);
+			}
 		});
 		return;	
     }).then(tip_amount => {
-		console.log("Customer is: "+customer_obj);
-		console.log("Customer id is"+customer_obj.id);
+		saved_customer_ref.on("value", function(snapshot) {
+		customer_id = snapshot.val();
+		console.log("retrieved customer id: " + customer_id);
+		if (snapshot.val() === null) {
+			console.error("Customer not retrieved!");
+			return;
+		}
+		
 		const charge = stripe.charges.create({
 			amount: amountTip,
 			currency: 'usd',
-			customer: customer_obj,
-			source: customer_source,
-		}, idemp_key);
+			customer: customer_id,
+			source: customer_source
+		}, {
+			idempotency_key: idemp_key
+		}, function(err, charge) {
+			console.log("Error: "+err+" on charge");
+		});
         admin.database().ref(`/${userId}/charge`).set("$"+amountTip/100);
-		console.log("code successful");
-		return charge;
+		admin.database().ref(`/${userId}/stripe_charge`).set(charge);
+		console.log("Stripe charge object created is: "+charge);
+	}, 	function(errorObject) {
+			console.log("The read failed: " + errorObject);
+		});
+		return;
     })
 });

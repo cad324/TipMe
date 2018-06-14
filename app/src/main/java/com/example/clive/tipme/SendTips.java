@@ -71,5 +71,4 @@ public class SendTips extends Activity {
         }
         return idempString.toString();
     }
-
 }
