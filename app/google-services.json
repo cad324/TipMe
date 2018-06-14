@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "907158271633",
+    "firebase_url": "https://tipme-5075f.firebaseio.com",
+    "project_id": "tipme-5075f",
+    "storage_bucket": "tipme-5075f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907158271633:android:521ecf9d3eb8b177",
+        "android_client_info": {
+          "package_name": "com.example.clive.tipme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907158271633-a9cirrlsu0i81jrv4t59lrpa7nmsvscq.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "907158271633-a9cirrlsu0i81jrv4t59lrpa7nmsvscq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCykn-OF6qjmFGVVw0KNXwBL1XpQghZtUU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
