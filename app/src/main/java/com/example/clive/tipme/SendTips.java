@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class SendTips extends Activity {
 
     private String amountToTip;
-    protected EditText amount;
+    protected EditText amount, toUser;
 
     private DatabaseReference mDatabase;
 
@@ -25,6 +25,7 @@ public class SendTips extends Activity {
 
         amount = (EditText) findViewById(R.id.tip_amount);
         Button sendTip = (Button) findViewById(R.id.send_tip);
+        toUser = findViewById(R.id.to_user);
 
         mDatabase = FirebaseDatabase.getInstance().getReferenceFromUrl("https://tipme-5075f.firebaseio.com/");
 
@@ -47,8 +48,14 @@ public class SendTips extends Activity {
             userID = userID + main.getEmail().charAt(wordCount);
             wordCount++;
         }
+        String designatedUser = toUser.getText().toString(); //User the tip is being sent to
+        mDatabase.child(userID).child("destination").push();
+        mDatabase.child(userID).child("destination").setValue(designatedUser);
         mDatabase.child(userID).child("idempotency_key").setValue(createIdempotencyKey());
         mDatabase.child(userID).child("tip_amount").setValue(numAmount);
+        //TODO: Add check to ensure toUser exists in database
+        mDatabase.child(designatedUser).child("received").push();
+        mDatabase.child(designatedUser).child("received").setValue("$"+numAmount/100);
     }
 
     public String getTipAmount() {

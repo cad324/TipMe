@@ -13,12 +13,24 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="450dp"
+        android:id="@+id/to_user"
+        android:hint="user" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:ems="10"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="362dp"
-        android:id="@+id/tip_amount" />
+        android:id="@+id/tip_amount"
+        android:hint="Tip amount" />
 
     <Button
         android:text="Send Tip"

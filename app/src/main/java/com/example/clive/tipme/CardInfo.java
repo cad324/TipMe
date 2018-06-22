@@ -71,6 +71,8 @@ public class CardInfo extends AppCompatActivity {
                             mDatabase.child(userID).push();
                             mDatabase.child(userID).child("card_token").push();
                             mDatabase.child(userID).child("tip_amount").push();
+                            mDatabase.child(userID).child("account").push();
+                            mDatabase.child(userID).child("account").setValue("acc_");
                             mDatabase.child(userID).child("card_token").setValue(token);
                             Intent backToMain = new Intent(CardInfo.this, MainActivity.class);
                             startActivity(backToMain);
