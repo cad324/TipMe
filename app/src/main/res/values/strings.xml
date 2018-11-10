@@ -46,5 +46,7 @@
     <string name="saved_cards_btn">Saved Cards</string>
     <string name="add_card_btn">Add Card</string>
     <string name="send_tip_btn">Send Tip</string>
+    <string name="save_card_btn">Save Card</string>
+    <string name="register_now_text">Don\'t have an account? Register here</string>
 </resources>
 
