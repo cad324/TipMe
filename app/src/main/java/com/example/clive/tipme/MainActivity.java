@@ -15,6 +15,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import static android.content.Context.WIFI_SERVICE;
+
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         Button mSaveCard = (Button) findViewById(R.id.save_card);
         Button mLogout = (Button) findViewById(R.id.logout);
         Button mSendTip = (Button) findViewById(R.id.send_tip);
-        Button mTermsButton = findViewById(R.id.terms_button);
+//        Button mTermsButton = findViewById(R.id.terms_button);
         //TextView mScreenMessage = (TextView) findViewById(R.id.screen_message);
         //mScreenMessage.setText("Welcome to your dashboard " + getUserName());
 
@@ -53,12 +55,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mTermsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                confirmAgreement();
-            }
-        });
+//        mTermsButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                confirmAgreement();
+//            }
+//        });
     }
 
     //
