@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -15,7 +14,6 @@ public class SendTips extends Activity {
 
     private String amountToTip;
     protected EditText amount, toUser;
-
     private DatabaseReference mDatabase;
 
     @Override
@@ -54,8 +52,7 @@ public class SendTips extends Activity {
         mDatabase.child(userID).child("idempotency_key").setValue(createIdempotencyKey());
         mDatabase.child(userID).child("tip_amount").setValue(numAmount);
         //TODO: Add check to ensure toUser exists in database
-        mDatabase.child(designatedUser).child("received").push();
-        mDatabase.child(designatedUser).child("received").setValue("$"+numAmount/100);
+
     }
 
     public String getTipAmount() {
