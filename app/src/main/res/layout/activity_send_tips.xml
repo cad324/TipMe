@@ -31,7 +31,7 @@
         android:hint="Tip amount" />
 
     <Button
-        android:text="Send Tip"
+        android:text="@string/send_tip_btn"
         android:background="@drawable/main_btn"
         android:textColor="#fff"
         android:layout_width="100dp"

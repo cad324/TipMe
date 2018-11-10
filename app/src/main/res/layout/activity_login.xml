@@ -78,7 +78,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
                 android:textAlignment="center"
-                android:text="Don't have an account? Register here"
+                android:text="@string/register_now_text"
                 android:id="@+id/register_text"
                 />
 
