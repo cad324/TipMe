@@ -8,6 +8,7 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:paddingTop="10dp"
+    android:background="#fff"
     tools:context="com.example.clive.tipme.MainActivity">
 
     <Button
