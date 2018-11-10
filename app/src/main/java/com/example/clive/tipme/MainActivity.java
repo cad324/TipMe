@@ -55,23 +55,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        mTermsButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                confirmAgreement();
-//            }
-//        });
+       /* mTermsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                confirmAgreement();
+            }
+        }); */
     }
 
-    //
-    private void confirmAgreement() {
+    /* private void confirmAgreement() {
         WifiManager wm = (WifiManager) getSystemService(WIFI_SERVICE);
         //TODO: Find up-to-date method for formatting ip address
         String ip = Formatter.formatIpAddress(wm.getConnectionInfo().getIpAddress());
         mDatabase.child(this.getUserName()).child("ip_address").push();
         mDatabase.child(this.getUserName()).child("ip_address").setValue(ip);
         mDatabase.child(this.getUserName()).child("terms_agreement").push().setValue(true);
-    }
+    } */
 
     //Opens tip sending page
     private void sendTip() {
