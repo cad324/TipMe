@@ -41,5 +41,10 @@
     <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
     <string name="title_activity_create_account">Register</string>
     <string name="title_activity_send_tips">SendTips</string>
+
+    <!--My strings-->
+    <string name="saved_cards_btn">Saved Cards</string>
+    <string name="add_card_btn">Add Card</string>
+    <string name="send_tip_btn">Send Tip</string>
 </resources>
 
