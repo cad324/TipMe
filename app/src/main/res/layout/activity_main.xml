@@ -13,14 +13,14 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="Add Card"
+        android:text="@string/add_card_btn"
         android:textColor="#fff"
         android:background="@drawable/main_btn"
         android:id="@+id/save_card" />
     <Button
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="Sign out"
+        android:text="@string/btn_sign_out"
         android:textColor="#fff"
         android:background="@drawable/main_btn"
         android:layout_alignParentRight="true"
@@ -30,7 +30,7 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:padding="5dp"
-        android:text="Saved Cards"
+        android:text="@string/saved_cards_btn"
         android:textColor="#fff"
         android:background="@drawable/main_btn"
         android:layout_alignParentBottom="true"
@@ -39,7 +39,7 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="Send Tip"
+        android:text="@string/send_tip_btn"
         android:textColor="#fff"
         android:background="@drawable/main_btn"
         android:layout_alignParentBottom="true"
