@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         auth.signOut();
         Intent returnToLogin = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(returnToLogin);
+        finish();
     }
 
     //Returns the unique identifier of the user (email)
