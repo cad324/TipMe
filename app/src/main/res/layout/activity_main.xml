@@ -27,6 +27,16 @@
         android:layout_alignParentRight="true"
         android:id="@+id/logout" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text= "@string/tip_display"
+        android:lineSpacingExtra="10dp"
+        android:textAlignment="center"
+        android:textSize="35sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
     <Button
         android:layout_width="100dp"
         android:layout_height="50dp"

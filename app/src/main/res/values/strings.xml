@@ -48,5 +48,6 @@
     <string name="send_tip_btn">Send Tip</string>
     <string name="save_card_btn">Save Card</string>
     <string name="register_now_text">Don\'t have an account? Register here</string>
+    <string name="tip_display">TIP BALANCE \n $35.75</string>
 </resources>
 
